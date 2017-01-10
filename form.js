@@ -19,5 +19,14 @@ $(function () { // Waits until document has loaded before it proceeds with any o
             $(this).siblings(".alert").fadeOut();
             $("#submitError").fadeOut();
         }
+
+        // Checks to see if fields are filled out. All of the fields are not filled out, then It'll prevent the submission
+        if ($("#firstname, #lastname, #miamiuid, #hometown, #currentcity, #comment").val() === "") {
+            $("#myform").submit(function (e) {
+                $("#submitError").show();
+                e.preventDefault();
+
+            })
+        }
     })
 });
