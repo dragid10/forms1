@@ -12,7 +12,7 @@ $(function () { // Waits until document has loaded before it proceeds with any o
         var content = $(this).val();
 
         // Just some standard debugging
-        console.log("content is " + content);
+        // console.log("content is " + content);
 
         // If the text in the input field is at least 2 characters, then hide the alert boxes for said field
         if (content.length >= 2) {
@@ -21,12 +21,17 @@ $(function () { // Waits until document has loaded before it proceeds with any o
         }
 
         // Checks to see if fields are filled out. All of the fields are not filled out, then It'll prevent the submission
-        if ($("#lastname, #miamiuid, #hometown, #currentcity, #comment").val() === "") {
-            $("#myform").submit(function (e) {
-                $("#submitError").show();
-                e.preventDefault();
+        // I promise I really tried to make this better, but it wouldn't work
+        $("#submitBttn").click(function () {
+            if (($("#firstname").val() === "") || ($("#lastname").val() === "") || ($("#miamiuid").val() === "")
+                || ($("#hometown").val() === "") || ($("#currentcity").val() === "") || ($("#comment").val() === "")) {
+                $("#myform").submit(function (e) {
+                    $("#submitError").show();
+                    e.preventDefault();
 
-            })
-        }
+                })
+            }
+        });
+
     })
 });
