@@ -23,8 +23,8 @@ $(function () { // Waits until document has loaded before it proceeds with any o
         // Checks to see if fields are filled out. All of the fields are not filled out, then It'll prevent the submission
         // I promise I really tried to make this better, but it wouldn't work
         $("#submitBttn").click(function () {
-            if (($("#firstname").val() === "") || ($("#lastname").val() === "") || ($("#miamiuid").val() === "")
-                || ($("#hometown").val() === "") || ($("#currentcity").val() === "") || ($("#comment").val() === "")) {
+            if (($("#firstname").val() || $("#lastname").val() || $("#miamiuid").val() || $("#hometown").val() ||
+                $("#currentcity").val() || $("#comment").val()) === ("" || " " )) {
                 $("#myform").submit(function (e) {
                     $("#submitError").show();
                     e.preventDefault();
